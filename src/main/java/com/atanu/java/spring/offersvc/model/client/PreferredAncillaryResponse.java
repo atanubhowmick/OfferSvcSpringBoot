@@ -7,21 +7,28 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.atanu.java.spring.offersvc.model.FaultDO;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
- * @author Atanu Bhowmick
+ * @author ATANU
  *
  */
 
+@ApiModel(value = "PreferredAncillaryResponse",
+		description = "All details about Preferred Ancillary Response")
 public class PreferredAncillaryResponse implements Serializable {
 
 	private static final long serialVersionUID = -5730428775920387647L;
 
+	@ApiModelProperty(value = "Origin Airport Code", example = "ATL")
 	private String originAirportCode;
+	
+	@ApiModelProperty(value = "Destination Airport Code", example = "MSP")
 	private String destAirportCode;
+	
+	@ApiModelProperty(value = "List of Preffered Ancillaries")
 	private List<AncillaryDetails> preferredAncillaries;
-	private FaultDO fault;
 
 	public String getOriginAirportCode() {
 		return originAirportCode;
@@ -44,14 +51,6 @@ public class PreferredAncillaryResponse implements Serializable {
 			preferredAncillaries = new ArrayList<AncillaryDetails>();
 		}
 		return preferredAncillaries;
-	}
-
-	public FaultDO getFault() {
-		return fault;
-	}
-
-	public void setFault(FaultDO fault) {
-		this.fault = fault;
 	}
 
 }

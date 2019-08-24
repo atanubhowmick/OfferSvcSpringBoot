@@ -24,7 +24,7 @@ public class Constants {
 	public static final String ERROR_MSG_5002					= "No data found. Please try again later.";
 	public static final String ERROR_MSG_5003					= "Unable to connect data svc.";
 	
-	public static final String DATASVC_BASE_URL 				= "http://localhost:8080/data-svc";
+	public static final String DATASVC_BASE_URL 				= "http://localhost:8082/data-svc";
 	public static final String DATASVC_URL_ANCILLARY			= "/ancillary";
-	public static final String DATASVC_URL_GET_ANCILLARY		= "/getAncillary";
+	public static final String DATASVC_URL_GET_ANCILLARY		= "/getAncillaryByAirports";
 }

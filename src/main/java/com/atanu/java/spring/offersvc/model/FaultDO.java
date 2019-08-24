@@ -5,15 +5,25 @@ package com.atanu.java.spring.offersvc.model;
 
 import java.io.Serializable;
 
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
- * @author Atanu Bhowmick
+ * @author ATANU
  *
  */
+@ApiModel(value = "FaultDO", description = "Response status with error if any")
 public class FaultDO implements Serializable {
-	
+	/**
+	 * serialVersionUID
+	 */
 	private static final long serialVersionUID = 6346004910126077137L;
 	
+	@ApiModelProperty(value = "Response status")
 	private String status;
+	
+	@ApiModelProperty(value = "Error details")
 	private ErrorDO error;
 
 	public String getStatus() {

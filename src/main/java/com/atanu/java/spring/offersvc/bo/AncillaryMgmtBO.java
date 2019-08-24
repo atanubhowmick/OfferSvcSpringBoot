@@ -60,7 +60,7 @@ public class AncillaryMgmtBO {
 			response = new AncillarySvcResponse();
 			response.setOriginAirportCode(preferredAncillaryResponse.getOriginAirportCode());
 			response.setDestAirportCode(preferredAncillaryResponse.getDestAirportCode());
-			response.setFault(preferredAncillaryResponse.getFault());
+			//response.setFault(preferredAncillaryResponse.getFault());
 			
 			List<AncillaryDetails> ancillaryDetailsList = preferredAncillaryResponse.getPreferredAncillaries();
 			
