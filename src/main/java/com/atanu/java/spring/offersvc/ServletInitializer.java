@@ -1,4 +1,4 @@
-package com.atanu.java.spring.offersvc.OfferSvcBoot;
+package com.atanu.java.spring.offersvc;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
