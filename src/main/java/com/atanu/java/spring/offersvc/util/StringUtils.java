@@ -6,18 +6,17 @@ import java.util.regex.Pattern;
 
 public class StringUtils {
 	
-	private static final String EMPTY_STRING = "";
-	
 	/**
 	 * @param s
 	 * @return boolean
 	 */
 	public static boolean isEmpty(String s){
 		boolean bool = Boolean.FALSE;
-		if(null == s) {
+		if (null == s) {
 			bool = Boolean.TRUE;
 		} else {
-			if(isEqual(s, EMPTY_STRING)){
+			String pattern = "\\s";
+			if (s.matches(pattern)) {
 				bool = Boolean.TRUE;
 			}
 		}

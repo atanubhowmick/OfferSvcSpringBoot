@@ -3,23 +3,23 @@
  */
 package com.atanu.java.spring.offersvc.exception;
 
+import org.springframework.http.HttpStatus;
+
 /**
  * @author Atanu Bhowmick
  *
  */
 public class OfferSvcException extends Exception {
 
-	/**
-	 * serialVersionUID
-	 */
-	private static final long serialVersionUID = 394279177155816870L;
+	private static final long serialVersionUID = -9220031603273561297L;
 
 	private String errorCode;
 	private String errorMsg;
+	private HttpStatus httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
 
-	public OfferSvcException(Throwable e) {
-		super(e);
-	}
+	/*
+	 * public OfferSvcException(Throwable e) { super(e); }
+	 */
 
 	public OfferSvcException(String errorCode, String errorMsg) {
 		this.errorCode = errorCode;
@@ -30,6 +30,19 @@ public class OfferSvcException extends Exception {
 		super(e);
 		this.errorCode = errorCode;
 		this.errorMsg = errorMsg;
+	}
+
+	public OfferSvcException(String errorCode, String errorMsg, HttpStatus httpStatus) {
+		this.errorCode = errorCode;
+		this.errorMsg = errorMsg;
+		this.httpStatus = httpStatus;
+	}
+
+	public OfferSvcException(String errorCode, String errorMsg, HttpStatus httpStatus, Throwable e) {
+		super(e);
+		this.errorCode = errorCode;
+		this.errorMsg = errorMsg;
+		this.httpStatus = httpStatus;
 	}
 
 	@Override
@@ -47,5 +60,9 @@ public class OfferSvcException extends Exception {
 
 	public String getErrorMsg() {
 		return errorMsg;
+	}
+
+	public HttpStatus getHttpStatus() {
+		return httpStatus;
 	}
 }

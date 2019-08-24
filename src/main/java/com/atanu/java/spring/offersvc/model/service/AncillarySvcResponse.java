@@ -7,10 +7,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.atanu.java.spring.offersvc.model.FaultDO;
-
 /**
- * @author ATANU
+ * @author Atanu Bhowmick
  *
  */
 public class AncillarySvcResponse implements Serializable {
@@ -23,7 +21,6 @@ public class AncillarySvcResponse implements Serializable {
 	private String originAirportCode;
 	private String destAirportCode;
 	private List<Ancillary> suggestedAncillaries;
-	private FaultDO fault;
 
 	public String getOriginAirportCode() {
 		return originAirportCode;
@@ -46,14 +43,6 @@ public class AncillarySvcResponse implements Serializable {
 			suggestedAncillaries = new ArrayList<Ancillary>();
 		}
 		return suggestedAncillaries;
-	}
-
-	public FaultDO getFault() {
-		return fault;
-	}
-
-	public void setFault(FaultDO fault) {
-		this.fault = fault;
 	}
 
 }

@@ -19,10 +19,12 @@ public class Constants {
 	public static final String ERROR_CODE_5001					= "5001";
 	public static final String ERROR_CODE_5002					= "5002";
 	public static final String ERROR_CODE_5003					= "5003";
+	public static final String ERROR_CODE_5004					= "5004";
 	
 	public static final String ERROR_MSG_5001					= "Origin/destination airport can't be empty.";
 	public static final String ERROR_MSG_5002					= "No data found. Please try again later.";
 	public static final String ERROR_MSG_5003					= "Unable to connect data svc.";
+	public static final String ERROR_MSG_5004					= "Internal Server Error";
 	
 	public static final String DATASVC_BASE_URL 				= "http://localhost:8082/data-svc";
 	public static final String DATASVC_URL_ANCILLARY			= "/ancillary";
