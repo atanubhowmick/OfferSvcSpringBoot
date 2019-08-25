@@ -5,23 +5,31 @@ package com.atanu.java.spring.offersvc.model.service;
 
 import java.io.Serializable;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * @author Atanu Bhowmick
  *
  */
+@ApiModel(value = "Ancillary", description = "All details about ancillary")
 public class Ancillary implements Serializable {
 
 	private static final long serialVersionUID = -3429123474397175306L;
 
+	@ApiModelProperty(value = "Ancillary Id", example = "101")
 	private String ancillaryId;
+
+	@ApiModelProperty(value = "Ancillary Name", example = "WiFi")
 	private String ancillaryName;
+
+	@ApiModelProperty(value = "Ancillary Decsription", example = "WiFi availabe inside")
 	private String ancillaryDesc;
 
 	public Ancillary() {
 	}
-	
-	public Ancillary(String ancillaryId, String ancillaryName,
-			String ancillaryDesc) {
+
+	public Ancillary(String ancillaryId, String ancillaryName, String ancillaryDesc) {
 		this.ancillaryId = ancillaryId;
 		this.ancillaryName = ancillaryName;
 		this.ancillaryDesc = ancillaryDesc;
