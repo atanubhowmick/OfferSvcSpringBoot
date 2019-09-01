@@ -30,6 +30,6 @@ public class Constants {
 	
 	public static final String DATASVC_BASE_URL 				= "http://localhost:8082/data-svc";
 	public static final String DATASVC_URL_ANCILLARY			= "/ancillary";
-	public static final String DATASVC_URL_GET_ANCILLARY		= "/getAncillaryByAirports";
-	public static final String DATASVC_URL_GET_ALL_ANCILLARY	= "/getAllAncillary";
+	public static final String DATASVC_URL_GET_ANCILLARY		= "/ancillary/getAncillaryByAirports";
+	public static final String DATASVC_URL_GET_ALL_ANCILLARY	= "/ancillary/getAllAncillary";
 }
