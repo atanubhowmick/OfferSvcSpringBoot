@@ -4,6 +4,7 @@
 package com.atanu.java.spring.offersvc.bo;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ import com.atanu.java.spring.offersvc.model.client.AncillaryDetails;
 import com.atanu.java.spring.offersvc.model.client.PreferredAncillaryResponse;
 import com.atanu.java.spring.offersvc.model.service.Ancillary;
 import com.atanu.java.spring.offersvc.model.service.AncillarySvcResponse;
+import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.core.IMap;
 
 /**
  * @author Atanu Bhowmick
@@ -31,6 +34,9 @@ public class AncillaryMgmtBO {
 	
 	@Autowired
 	private AncillaryConverter converter;
+	
+	@Autowired
+	private HazelcastInstance hazelcastInstance;
 
 	private static final ApplicationLogger logger = new ApplicationLogger(AncillaryMgmtBO.class);
 
@@ -71,6 +77,19 @@ public class AncillaryMgmtBO {
 		PreferredAncillaryResponse ancillaryResponse = dataSvcClient
 				.getPreferredAncillaryResponseByAirports(originAirportCode, destAirporCode);
 		return converter.covertToAncillarySvcResponse(ancillaryResponse);
+	}
+	
+	public String putInHazelastMap() {
+		IMap<String, String> iMap = hazelcastInstance.getMap("TEST_MAP");
+		iMap.lock("TEST_KEY");
+		iMap.put("TEST_KEY", "This is hazelcast cache testing..cache", 2L, TimeUnit.MINUTES);
+		iMap.unlock("TEST_KEY");
+		return "Success";
+	}
+	
+	public String getFromHazelcastMap() {
+		IMap<String, String> iMap = hazelcastInstance.getMap("TEST_MAP");
+		return iMap.get("TEST_KEY");
 	}
 
 }

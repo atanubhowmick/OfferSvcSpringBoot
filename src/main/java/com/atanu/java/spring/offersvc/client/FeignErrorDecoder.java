@@ -14,8 +14,8 @@ import com.atanu.java.spring.offersvc.constant.Constants;
 import com.atanu.java.spring.offersvc.exception.OfferSvcException;
 import com.atanu.java.spring.offersvc.logger.ApplicationLogger;
 import com.atanu.java.spring.offersvc.model.FaultDO;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.io.CharStreams;
-import com.google.gson.Gson;
 
 import feign.Response;
 import feign.codec.ErrorDecoder;
@@ -37,8 +37,8 @@ public class FeignErrorDecoder implements ErrorDecoder {
 				InputStream stream = response.body().asInputStream();
 				String errorString = CharStreams.toString(new InputStreamReader(stream, Charset.defaultCharset()));
 				logger.debug("Error from data-svc : {}", errorString);
-				Gson gson = new Gson();
-				FaultDO fault = gson.fromJson(errorString, FaultDO.class);
+				ObjectMapper mapper = new ObjectMapper();
+				FaultDO fault = mapper.convertValue(errorString, FaultDO.class);
 				exception = new OfferSvcException(fault.getError().getErrorCode(), fault.getError().getErrorMsg(),
 						HttpStatus.valueOf(response.status()));
 			} catch (IOException e) {

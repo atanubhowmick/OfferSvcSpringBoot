@@ -101,4 +101,14 @@ public class AncillaryService {
 		}
 		return new ResponseEntity<AncillarySvcResponse>(response, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/hazelcast/save", method = RequestMethod.POST, produces = { MediaType.TEXT_PLAIN_VALUE })
+	public ResponseEntity<String> getHazelCastData() {
+		return new ResponseEntity<>(ancillaryMgmtBO.putInHazelastMap(), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/hazelcast/get", method = RequestMethod.GET, produces = { MediaType.TEXT_PLAIN_VALUE })
+	public ResponseEntity<String> getFromHazelcastMap() {
+		return new ResponseEntity<>(ancillaryMgmtBO.getFromHazelcastMap(), HttpStatus.OK);
+	}
 }

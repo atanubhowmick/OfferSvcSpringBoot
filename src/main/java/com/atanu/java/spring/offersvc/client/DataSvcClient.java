@@ -16,7 +16,7 @@ import com.atanu.java.spring.offersvc.model.FaultDO;
 import com.atanu.java.spring.offersvc.model.client.AncillaryDetails;
 import com.atanu.java.spring.offersvc.model.client.PreferredAncillaryResponse;
 import com.atanu.java.spring.offersvc.util.StringUtils;
-import com.google.gson.Gson;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import feign.FeignException;
 
@@ -79,8 +79,8 @@ public class DataSvcClient {
 		String errorString = ex.contentUTF8();
 		if (StringUtils.isNotEmpty(errorString)) {
 			logger.debug("Error from data-svc : {}", errorString);
-			Gson gson = new Gson();
-			FaultDO faultDO = gson.fromJson(errorString, FaultDO.class);
+			ObjectMapper mapper = new ObjectMapper();
+			FaultDO faultDO = mapper.convertValue(errorString, FaultDO.class);
 			throw new OfferSvcException(faultDO.getError().getErrorCode(), faultDO.getError().getErrorMsg(),
 					HttpStatus.valueOf(ex.status()));
 		} else {
