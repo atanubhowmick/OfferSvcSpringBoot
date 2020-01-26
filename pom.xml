@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.atanu.java.spring.offersvc</groupId>
-	<artifactId>OfferSvcBoot</artifactId>
+	<artifactId>offer-svc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>OfferSvcBoot</name>
+	<name>offer-svc</name>
 	<description>Offer Svc for Spring Boot and Swagger</description>
 
 	<properties>
